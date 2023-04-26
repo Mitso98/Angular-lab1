@@ -1,5 +1,112 @@
 <p>products section!</p>
-<h1>Store name: {{storeName}}</h1>
-<img style="width: 50vw; height: 30vh;" [src]="storeLogo" class="img-fluid">
-<h3>We offer an explicit discount of: {{discount}}</h3>
+<h1>Store name: {{ storeName | uppercase }}</h1>
+<img style="width: 50vw; height: 30vh" [src]="storeLogo" class="img-fluid" />
+<h3 *ngIf="discount !== 'No Discount'">
+  We offer an explicit discount of: {{ discount | percent }}
+</h3>
+<select>
+  <option value="">Select a category</option>
+  <option *ngFor="let category of categoriesList">{{ category.name }}</option>
+</select>
+<div *ngIf="!isPurchased; then tableBlock; else thankyouBlock"></div>
+<ng-template #tableBlock>
+  <table style="border-collapse: separate; border-spacing: 0 10px">
+    <thead>
+      <tr>
+        <th
+          style="border-bottom: 1px solid black; border-right: 1px solid black"
+        >
+          Name
+        </th>
+        <th
+          style="border-bottom: 1px solid black; border-right: 1px solid black"
+        >
+          Price
+        </th>
+        <th style="border-bottom: 1px solid black">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsList">
+        <td
+          style="
+            padding: 10px;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+          "
+        >
+          {{ product.name }}
+        </td>
+        <td
+          style="
+            padding: 10px;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+          "
+        >
+          {{ product.price | currency : "EGP" }}
+        </td>
+        <td style="padding: 10px; border-bottom: 1px solid black">
+          <img style="width: 150px" src="{{ product.img }}" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+<ng-template #thankyouBlock>
+  <div class="alert alert-success">
+    <p>Thanks for purchasing from our Store {{ clientName }}</p>
+  </div>
+</ng-template>
+<br />
+<input type="text" [(ngModel)]="clientName" />
+<div class="alert alert-success">
+  <p>Client Name: {{ clientName }}</p>
+</div>
+<br />
+<button (click)="buyItem(null)">Buy</button>
+<br />
+<div class="bg-light py-5">
+  <h2 class="text-center mb-4">{{ storeName | uppercase }}</h2>
 
+  <div class="container bg-white p-4 rounded shadow">
+    <div class="card-deck d-flex flex-wrap justify-content-around">
+      <div
+        #parentDiv
+        class="card mb-3 shadow-sm"
+        style="max-width: calc(100% / 4 - 1rem)"
+        *ngFor="let product of productsList"
+        [hidden]="product.isPurchased"
+      >
+        <img
+          style="width: 15vw; height: 40vh"
+          class="card-img-top"
+          src="{{ product.img }}"
+          alt="Product Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.price | currency : "EGP" }}</p>
+          <button class="btn btn-primary" (click)="buyItem(product)">
+            Buy
+          </button>
+        </div>
+      </div>
+      <div
+        class="card mb-3 shadow-sm"
+        style="max-width: calc(100% / 4 - 1rem)"
+        *ngFor="let product of productsList"
+        [hidden]="!product.isPurchased"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.price | currency : "EGP" }}</p>
+          <div class="alert alert-success mt-3">Successful</div>
+          <button class="btn btn-primary" (click)="buyItem(product)">
+            Show Again
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
