@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { ProductsComponent } from './products/products.component';
+import { Component, ViewChild } from '@angular/core';
+
+
 
 @Component({
   selector: 'myfirstapp-root',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lab1';
+  @ViewChild(ProductsComponent) productComponent!: ProductsComponent;
+
+  renderProductValues() {
+    this.productComponent.renderValues();
+  }
 }
