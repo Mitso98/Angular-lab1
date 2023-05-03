@@ -11,13 +11,21 @@ import { HeaderComponent } from './header/header.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { PostsComponent } from './posts/posts.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProductsComponent
+    ProductsComponent,
+    HomeComponent,
+    UsersComponent,
+    PostsComponent,
+    CommentsComponent
   ],
   imports: [
     CarouselModule.forRoot(),

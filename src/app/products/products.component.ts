@@ -10,7 +10,7 @@ import { clippingParents } from '@popperjs/core';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })
-export class ProductsComponent  implements OnInit {
+export class ProductsComponent implements OnInit {
   discount: DiscountOffers;
 
   storeName: string;
@@ -19,10 +19,9 @@ export class ProductsComponent  implements OnInit {
   categoriesList: ICategory[];
   clientName: string;
   isPurchased: boolean;
-  errorMessage:any;
+  errorMessage: any;
 
-
-  constructor(  private productService: ProductServiceService) {
+  constructor(private productService: ProductServiceService) {
     this.discount = DiscountOffers.tenPercent;
     this.storeName = 'Hyper One';
     this.storeLogo = './assets/storeLogo.jpg';
@@ -68,7 +67,7 @@ export class ProductsComponent  implements OnInit {
   buyItem(product: any = null): void {
     if (product === null) {
       this.isPurchased = !this.isPurchased;
-    }else{
+    } else {
       product.isPurchased = !product.isPurchased;
     }
   }
@@ -77,13 +76,13 @@ export class ProductsComponent  implements OnInit {
     //Add 'implements OnInit' to the class.
     this.renderValues();
     console.log(this.productsList);
-
   }
   renderValues() {
-    this.productService.GetAllProducts().subscribe(
-{  next:data=>this.productsList=data,
-  error:error=>this.errorMessage=error}
-    );
+    this.productService
+      .GetAllProducts()
+      .subscribe({
+        next: (data) => (this.productsList = data),
+        error: (error) => (this.errorMessage = error),
+      });
   }
-
 }

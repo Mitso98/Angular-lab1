@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-4 mb-3" *ngFor="let post of postsList">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.id }}</p>
+        <p class="card-text">{{ post.body }}</p>
+        <button class="btn btn-primary" (click)="navigate(post.id)">
+          Read comments
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
