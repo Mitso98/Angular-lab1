@@ -5,9 +5,18 @@ import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
+import { DiscountedProductsComponent } from './discounted-products/discounted-products.component';
+import { RegularProductsComponent } from './regular-products/regular-products.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductsComponent },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    children: [
+      { path: 'discounted', component: DiscountedProductsComponent },
+      { path: 'regular', component: RegularProductsComponent },
+    ],
+  },
   { path: 'users', component: UsersComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id/comments', component: CommentsComponent },

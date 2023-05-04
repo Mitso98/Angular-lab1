@@ -1,3 +1,7 @@
+import { DiscountOffers } from "./DiscountOffers";
+
+
+
 export interface IProduct {
   id: number;
   name: string;
@@ -5,4 +9,5 @@ export interface IProduct {
   price: number;
   img: string;
   isPurchased: boolean;
+  discount: DiscountOffers;
 }

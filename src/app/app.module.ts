@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
+import { RegularProductsComponent } from './regular-products/regular-products.component';
+import { DiscountedProductsComponent } from './discounted-products/discounted-products.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CommentsComponent } from './comments/comments.component';
     HomeComponent,
     UsersComponent,
     PostsComponent,
-    CommentsComponent
+    CommentsComponent,
+    RegularProductsComponent,
+    DiscountedProductsComponent
   ],
   imports: [
     CarouselModule.forRoot(),

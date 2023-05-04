@@ -5,7 +5,8 @@
        "name": "Corn Flakes",
        "price": 20,
        "quantity": 5,
-       "isPurchased": false
+       "isPurchased": false,
+       "discount": "0.15"
      },
      {
        "id": 2,
@@ -13,7 +14,8 @@
        "name": "iPhone11",
        "price": 20000,
        "quantity": 5,
-       "isPurchased": false
+       "isPurchased": false,
+       "discount": "No Discount"
      },
      {
        "id": 3,
@@ -21,7 +23,8 @@
        "name": "iPhone12",
        "price": 30000,
        "quantity": 5,
-       "isPurchased": false
+       "isPurchased": false,
+       "discount": "0.15"
      },
      {
        "id": 4,
@@ -29,7 +32,8 @@
        "name": "iPhone13",
        "price": 40000,
        "quantity": 5,
-       "isPurchased": false
+       "isPurchased": false,
+       "discount": "No Discount"
      }
    ]
   

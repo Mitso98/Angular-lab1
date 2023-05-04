@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'lab1';
   @ViewChild(ProductsComponent) productComponent!: ProductsComponent;
 
-  renderProductValues() {
-    this.productComponent.renderValues();
-  }
+  // renderProductValues() {
+  //   this.productComponent.renderValues();
+  // }
 }

@@ -1,4 +1,13 @@
 <p>products section!</p>
+<div class="container">
+  <button class="btn btn-primary" (click)="showDiscountedProducts()">
+    Discounted Products
+  </button>
+  <button class="btn btn-primary" (click)="showRegularProducts()">
+    Regular Products
+  </button>
+  <router-outlet></router-outlet>
+</div>
 <h1>Store name: {{ storeName | uppercase }}</h1>
 <img style="width: 50vw; height: 30vh" [src]="storeLogo" class="img-fluid" />
 <h3 *ngIf="discount !== 'No Discount'">
@@ -110,15 +119,3 @@
     </div>
   </div>
 </div>
-<!-- <div
-        class="card mb-3 shadow-sm"
-        style="max-width: calc(100% / 4 - 1rem)"
-        *ngFor="let product of productsList | keyvalue"
-
->
-        <div *ngFor="let x of product | keyvalue">
-          <div *ngFor="let x of product | keyvalue">
-            <h1>{{x}}</h1>
-          </div>
-        </div>
-</div> -->
