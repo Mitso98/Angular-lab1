@@ -7,8 +7,12 @@ import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
 import { DiscountedProductsComponent } from './discounted-products/discounted-products.component';
 import { RegularProductsComponent } from './regular-products/regular-products.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'products',
     component: ProductsComponent,
